@@ -89,7 +89,7 @@ async def weather(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(result)
 
 def main() -> None:
-    application = Application.builder().token("7424786482:AAHS4UlJHWs4877l8vwTLn30UoaS58bQBik").build()
+    application = Application.builder().token("token").build()
 
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("help", help_command))
