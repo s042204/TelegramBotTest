@@ -43,7 +43,7 @@ async def start_task(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
 
     await update.message.reply_text(result)
 
-# Define a background task for fetching a joke from an API
+# Define a background task for fetching a joke 
 def fetch_joke() -> str:
     response = requests.get('https://official-joke-api.appspot.com/random_joke')
     joke = response.json()
@@ -89,18 +89,14 @@ async def weather(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(result)
 
 def main() -> None:
-    # Create the Application and pass it your bot's token.
-    # Replace 'YOUR_TOKEN' with your actual bot token.
     application = Application.builder().token("7424786482:AAHS4UlJHWs4877l8vwTLn30UoaS58bQBik").build()
 
-    # Register command handlers
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("help", help_command))
     application.add_handler(CommandHandler("start_task", start_task))
     application.add_handler(CommandHandler("joke", joke))
     application.add_handler(CommandHandler("weather", weather))
 
-    # Run the bot until you press Ctrl-C
     application.run_polling()
 
 if __name__ == '__main__':
